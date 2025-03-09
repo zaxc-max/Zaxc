@@ -1,0 +1,286 @@
+/* Style dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Efek roket */
+.rocket {
+    position: fixed;
+    bottom: -100px;
+    left: -100px;
+    width: 80px;
+    height: 80px;
+    background: url('https://cdn-icons-png.flaticon.com/512/2821/2821621.png') no-repeat center/contain;
+    animation: rocket-fly 15s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rocket-fly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(150vw, -150vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Efek komputer */
+.computer {
+    position: fixed;
+    bottom: -100px;
+    right: -100px;
+    width: 100px;
+    height: 100px;
+    background: url('https://cdn-icons-png.flaticon.com/512/1995/1995574.png') no-repeat center/contain;
+    animation: computer-fly 15s linear infinite;
+    z-index: -1;
+}
+
+@keyframes computer-fly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-150vw, -150vh) rotate(-360deg);
+        opacity: 0;
+    }
+}
+/* Style untuk icon */
+.icon {
+    position: fixed;
+    bottom: 0; /* Muncul dari bawah */
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: explode 5s ease-out infinite;
+    opacity: 0;
+}
+
+/* Icon spesifik */
+.screwdriver {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1086/1086387.png');
+    animation-delay: 0s;
+}
+
+.bomb {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2554/2554967.png');
+    animation-delay: 1s;
+}
+
+.code {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/5968/5968350.png');
+    animation-delay: 2s;
+}
+
+/* Animasi ledakan ke atas */
+@keyframes explode {
+    0% {
+        transform: translate(-50%, 0) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--x), var(--y)) scale(1);
+    }
+}
+
+/* Arah penyebaran */
+.screwdriver { --x: -300px; --y: -300px; }
+.bomb { --x: 300px; --y: -300px; }
+.code { --x: 0px; --y: -800px; }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    background: linear-gradient(135deg, #4facfe, #9b59b6);
+    color: #fff;
+    padding: 2rem;
+}
+
+/* Layer styling */
+.layer {
+    width: 100%;
+    max-width: 1200px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 2rem;
+}
+/* Hamburger Menu */
+/* Hamburger Menu */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    background: #000; /* Background hitam */
+    color: #fff;
+    padding: 1rem 2rem; /* Biar lebih kotak lebar */
+    border: none;
+    border-radius: 10px; /* Sudut tumpul */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+.hamburger:hover {
+    background: #4facfe; /* Hover effect */
+}
+
+.nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgb(0,0,0);
+    border-radius: 8px;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+
+.show {
+    display: flex;
+}
+
+.nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+
+.show {
+    display: flex;
+}
+
+
+/* Proyek */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.project-button {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.project-button:hover {
+    background-color: #4facfe;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 2px solid #fff;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 0 0 15px 15px;
+    margin-top: auto;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #4facfe;
+}

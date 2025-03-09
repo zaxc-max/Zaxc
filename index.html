@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="rocket">
+  </div>
+  <div class="computer">
+  </div><div class="icon screwdriver">
+  </div>
+<div class="icon bomb">
+</div>
+<div class="icon code">
+</div>
+
+    <!-- Navbar dengan Hamburger Menu -->
+    <nav class="navbar">
+        <button class="hamburger" id="hamburgerBtn">☰</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="https://wa.me/6282229428966" target="_blank">WhatsApp</a>
+            <a href="https://t.me/zaxchost" target="_blank">Telegram</a>
+        </div>
+    </nav>
+
+    <!-- Layer 1: Perkenalan -->
+    <div class="layer" id="layer1">
+        <header>
+            <h1>Selamat Datang di Portofolio zaxc</h1>
+            <p>Web Developer | Designer | Content Creator | programer cilik</p>
+        </header>
+
+        <section>
+            <h2>Tentang Saya</h2>
+            <p>Saya memulai perjalanan coding sejak umur 15 tahun, mengembangkan web, bot WhatsApp, dan berbagai proyek seru lainnya, dan sekarang saya baru berumur 16 tahun perlu di ingat saya hanya lulusan smp</p>
+        </section>
+
+        <a href="#" class="button" id="toProjects">Lanjut ke Proyek</a>
+    </div>
+
+    <!-- Layer 2: Pilihan Proyek -->
+    <div class="layer hidden" id="layer2">
+        <section>
+            <h2>Toko ini melayani jasa pembuatan bot WhatsApp, serta pengembangan website custom sesuai keinginan pelanggan. Dengan pengalaman dan kreativitas, saya siap membantu kebutuhan digital Anda, untuk pemesanan bisa lihat hamburger</h2>
+            <div class="project-list">
+                <button class="project-button" id="botWaButton">Bot WhatsApp</button>
+                <button class="project-button" id="webDevButton">Website Canggih & Modern</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Layer 3: Detail Proyek -->
+    <div class="layer hidden" id="layer3">
+        <section id="projectDetail">
+            <h2>Detail Proyek</h2>
+            <p id="projectDescription">Silakan pilih proyek untuk melihat detailnya.</p>
+        </section>
+
+        <button class="button back-button" id="backToProjects">Kembali</button>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const toProjectsButton = document.getElementById('toProjects');
+        const botWaButton = document.getElementById('botWaButton');
+        const webDevButton = document.getElementById('webDevButton');
+        const backToProjectsButton = document.getElementById('backToProjects');
+        
+        const layer1 = document.getElementById('layer1');
+        const layer2 = document.getElementById('layer2');
+        const layer3 = document.getElementById('layer3');
+        const projectDescription = document.getElementById('projectDescription');
+
+        // Navigasi antar layer
+        toProjectsButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            layer1.classList.add('hidden');
+            layer2.classList.remove('hidden');
+        });
+
+        botWaButton.addEventListener('click', () => {
+            layer2.classList.add('hidden');
+            layer3.classList.remove('hidden');
+            projectDescription.textContent = 'Bot WhatsApp saya memiliki fitur canggih, termasuk downloader, kuis, dan banyak lagi.';
+        });
+
+        webDevButton.addEventListener('click', () => {
+            layer2.classList.add('hidden');
+            layer3.classList.remove('hidden');
+            projectDescription.textContent = 'Saya mengembangkan berbagai website modern, termasuk situs top up, portofolio, dan eksperimen desain, tetapi jarang yang saya rilis.';
+        });
+
+        backToProjectsButton.addEventListener('click', () => {
+            layer3.classList.add('hidden');
+            layer2.classList.remove('hidden');
+        });
+
+        // Hamburger Menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+
+    <style>
+        /* Style dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #4facfe, #9b59b6);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* Layer styling */
+        .layer {
+            width: 100%;
+            max-width: 1200px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #fff;
+            margin-bottom: 2rem;
+        }
+
+        h1, h2 {
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+        /* Tombol */
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #9b59b6;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 2rem;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background-color: #4facfe;
+        }
+
+        .back-button {
+            display: block;
+            margin: 2rem auto 0;
+            background-color: #4facfe;
+        }
+
+        .back-button:hover {
+            background-color: #9b59b6;
+        }
+
+        /* Proyek sebagai tombol */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .project-button {
+            padding: 1.5rem;
+            font-size: 1.3rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+
+        .project-button:hover {
+            background-color: #4facfe;
+        }
+
+        /* Hamburger Menu */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .hamburger {
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 1rem;
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .show {
+            display: flex;
+        }
+    </style>
+
+</body>
+<!-- Footer -->
+    <footer style="
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        margin-top: auto;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    ">
+        <p>&copy; 2025 Zaxc. All Rights Reserved.</p>
+    </footer>
+</html>
